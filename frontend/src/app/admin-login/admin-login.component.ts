@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 
@@ -11,7 +11,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
   imports: [
     CommonModule,
     FormsModule,
-    NavbarComponent
+    NavbarComponent,
+    RouterModule
   ],
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css']

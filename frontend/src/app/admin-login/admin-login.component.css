@@ -171,6 +171,20 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.register-link {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1200px) {
   .container {
     max-width: 50vw;
