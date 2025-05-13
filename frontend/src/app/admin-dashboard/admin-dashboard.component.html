@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<section class="admin-dashboard">
+  <div class="container">
+    <div class="dashboard-header">
+      <h2>Admin Dashboard</h2>
+      <div class="dashboard-actions">
+        <a [routerLink]="['/posts/create']" class="create-btn">Create New Post</a>
+        <a [routerLink]="['/admin/contacts']" class="contacts-btn">View Messages</a>
+      </div>
+    </div>
+
+    <div *ngIf="loading" class="loading">Loading posts...</div>
+    
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+
+    <div class="posts-table" *ngIf="!loading && !error">
+      <div class="table-header">
+        <div class="col-title">Title</div>
+        <div class="col-date">Created</div>
+        <div class="col-date">Updated</div>
+        <div class="col-actions">Actions</div>
+      </div>
+
+      <div class="table-body">
+        <div class="table-row" *ngFor="let post of posts">
+          <div class="col-title">{{ post.title }}</div>
+          <div class="col-date">{{ formatDate(post.createdAt) }}</div>
+          <div class="col-date">{{ formatDate(post.updatedAt) }}</div>
+          <div class="col-actions">
+            <a [routerLink]="['/posts', post._id]" class="view-btn">View</a>
+            <a [routerLink]="['/posts/edit', post._id]" class="edit-btn">Edit</a>
+            <button class="delete-btn" (click)="deletePost(post._id)">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-posts" *ngIf="posts.length === 0">
+        No posts found. Create your first post!
+      </div>
+    </div>
+  </div>
+</section>

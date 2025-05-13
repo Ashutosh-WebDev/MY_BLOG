@@ -1,0 +1,107 @@
+<section class="create-post">
+  <div class="container">
+    <h2>Create New Post</h2>
+    
+    <div *ngIf="loading" class="loading">Loading...</div>
+    
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+    
+    <div *ngIf="success" class="success-message">
+      {{ success }}
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #postForm="ngForm" *ngIf="!loading">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input 
+          type="text" 
+          id="title"
+          name="title"
+          [(ngModel)]="post.title"
+          required
+          #title="ngModel"
+          placeholder="Enter post title">
+        <div *ngIf="title.invalid && (title.dirty || title.touched)" class="error-text">
+          Title is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea 
+          id="content"
+          name="content"
+          [(ngModel)]="post.content"
+          required
+          #content="ngModel"
+          (blur)="previewExcerpt()"
+          rows="10"
+          placeholder="Write your post content here"></textarea>
+        <div *ngIf="content.invalid && (content.dirty || content.touched)" class="error-text">
+          Content is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="excerpt">Excerpt</label>
+        <textarea 
+          id="excerpt"
+          name="excerpt"
+          [(ngModel)]="post.excerpt"
+          required
+          #excerpt="ngModel"
+          rows="3"
+          placeholder="Brief summary of your post"></textarea>
+        <div *ngIf="excerpt.invalid && (excerpt.dirty || excerpt.touched)" class="error-text">
+          Excerpt is required
+        </div>
+        <small class="help-text">This will be automatically generated from your content, but you can edit it.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Featured Image</label>
+        <input 
+          type="file" 
+          id="image"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+          class="file-input">
+        
+        <div *ngIf="imagePreview" class="image-preview">
+          <img [src]="imagePreview" alt="Preview">
+          <button type="button" class="remove-image" (click)="removeImage()">
+            Remove Image
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label>
+          <input 
+            type="checkbox"
+            name="featured"
+            [(ngModel)]="post.featured">
+          Featured Post
+        </label>
+        <small class="help-text">Featured posts will be displayed prominently on the home page</small>
+      </div>
+
+      <div class="form-actions">
+        <button 
+          type="submit" 
+          [disabled]="postForm.invalid || loading"
+          class="submit-btn">
+          Create Post
+        </button>
+        <button 
+          type="button" 
+          class="cancel-btn" 
+          (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

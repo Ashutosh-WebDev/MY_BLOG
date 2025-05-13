@@ -1,0 +1,30 @@
+<section class="featured-posts">
+  <div class="container">
+    <h2>Featured Blog Posts</h2>
+    
+    <div *ngIf="loading" class="loading">
+      Loading featured posts...
+    </div>
+
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+
+    <div class="posts-grid" *ngIf="!loading && !error">
+      <article class="post-card" *ngFor="let post of posts">
+        <div class="post-image">
+          <img [src]="post.image ? 'http://localhost:5000/api/posts/image/' + post.image : '/assets/images/blog-image.jpg'" [alt]="post.title">
+        </div>
+        <div class="post-content">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt }}</p>
+          <a [routerLink]="['/posts', post._id]" class="read-more">Read More</a>
+        </div>
+      </article>
+    </div>
+
+    <div *ngIf="!loading && !error && posts.length === 0" class="no-posts">
+      No featured posts available.
+    </div>
+  </div>
+</section>

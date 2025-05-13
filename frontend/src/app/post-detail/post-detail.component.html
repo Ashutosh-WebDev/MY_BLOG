@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<div class="post-detail">
+  <div *ngIf="loading" class="loading">
+    Loading post...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <article *ngIf="post && !loading && !error">
+    <div class="post-header" [style.backgroundImage]="'url(' + getImageUrl(post.image) + ')'">
+      <div class="overlay">
+        <h1>{{ post.title }}</h1>
+      </div>
+    </div>
+
+    <div class="post-meta">
+      <div class="meta-item">
+        <fa-icon [icon]="faCalendar"></fa-icon>
+        <span class="date">{{ post.createdAt | date:'mediumDate' }}</span>
+      </div>
+      <div class="meta-item">
+        <fa-icon [icon]="faUser"></fa-icon>
+        <span class="author">{{ post.author?.email || 'Lipi Raghuwanshi' }}</span>
+      </div>
+    </div>
+
+    <div class="post-content" [innerHTML]="post.content"></div>
+  </article>
+</div>
+
+<app-contact-section></app-contact-section>

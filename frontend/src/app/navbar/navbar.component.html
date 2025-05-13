@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="nav-content">
+    <a routerLink="/" class="navbar-logo">MY BLOG</a>
+    <ul [class.open]="menuOpen">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/posts" routerLinkActive="active" (click)="closeMenu()">Posts</a></li>
+      <li><a routerLink="/admin/login" routerLinkActive="active" (click)="closeMenu()">Admin Login</a></li>
+    </ul>
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
