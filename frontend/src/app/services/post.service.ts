@@ -24,7 +24,7 @@ export interface Post {
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl = 'http://localhost:5000/api/posts';
+  private apiUrl = 'https://my-blog-pragyan.onrender.com/api/posts';
 
   constructor(private http: HttpClient) {}
 
@@ -57,6 +57,6 @@ export class PostService {
   }
 
   getImageUrl(image: string | undefined): string {
-    return image ? `http://localhost:5000/api/posts/image/${image}` : '/assets/images/blog-image.jpg';
+    return image ? `https://my-blog-pragyan.onrender.com/api/posts/image/${image}` : '/assets/images/blog-image.jpg';
   }
 }

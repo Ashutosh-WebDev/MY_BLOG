@@ -43,10 +43,10 @@ export class AdminLoginComponent {
 
     this.authService.login(this.email, this.password).subscribe({
       next: () => {
-        console.log('Login successful');
+
         this.loading = false;
         this.router.navigate(['/admin/dashboard']).then(() => {
-          console.log('Navigation complete');
+
         }).catch(err => {
           console.error('Navigation error:', err);
         });

@@ -102,7 +102,7 @@ export class RegisterComponent {
     this.isLoading = true;
     this.error = '';
 
-    this.http.post('http://localhost:5000/api/auth/register', {
+    this.http.post('https://my-blog-pragyan.onrender.com/api/auth/register', {
       email: this.email,
       password: this.password,
       secretKey: this.secretKey

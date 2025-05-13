@@ -39,7 +39,7 @@ export class EditPostComponent implements OnInit {
   isNewPost = true;
   selectedFile: File | null = null;
   imagePreview: string | null = null;
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = 'https://my-blog-pragyan.onrender.com/api';
 
   constructor(
     private http: HttpClient,
