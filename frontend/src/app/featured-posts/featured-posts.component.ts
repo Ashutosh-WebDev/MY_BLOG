@@ -34,26 +34,26 @@ export class FeaturedPostsComponent implements OnInit {
         this.loading = false;
         this.error = 'Failed to load featured posts';
         // Add fallback posts if API fails
-        this.posts = [
-          {
-            _id: '1',
-            title: 'Sample Blog Post 1',
-            excerpt: 'This is a sample blog post.',
-            content: 'Sample content',
-            image: '/assets/images/blog-image.jpg',
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          },
-          {
-            _id: '2',
-            title: 'Sample Blog Post 2',
-            excerpt: 'Another sample blog post.',
-            content: 'More sample content',
-            image: '/assets/images/blog-image.jpg',
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          }
-        ];
+        // this.posts = [
+        //   {
+        //     _id: '1',
+        //     title: 'Sample Blog Post 1',
+        //     excerpt: 'This is a sample blog post.',
+        //     content: 'Sample content',
+        //     image: '/assets/images/blog-image.jpg',
+        //     createdAt: new Date().toISOString(),
+        //     updatedAt: new Date().toISOString()
+        //   },
+        //   {
+        //     _id: '2',
+        //     title: 'Sample Blog Post 2',
+        //     excerpt: 'Another sample blog post.',
+        //     content: 'More sample content',
+        //     image: '/assets/images/blog-image.jpg',
+        //     createdAt: new Date().toISOString(),
+        //     updatedAt: new Date().toISOString()
+        //   }
+        // ];
       }
     });
   }

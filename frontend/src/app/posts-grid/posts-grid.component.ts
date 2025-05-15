@@ -33,20 +33,20 @@ export class PostsGridComponent implements OnInit {
       error: (error: any) => {
         console.error('Error loading posts:', error);
         this.loading = false;
-        this.error = error.error?.message || 'Failed to load posts';
+        this.error =  'Failed to load posts';
         // Fallback data if API fails
-        this.posts = [
-          {
-            _id: '1',
-            title: 'Understanding Angular Standalone Components',
-            excerpt: 'A quick dive into the new Angular standalone component API...',
-            content: 'Sample content...',
-            image: '/assets/images/blog-image.jpg',
-            featured: false,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          }
-        ];
+        // this.posts = [
+        //   {
+        //     _id: '1',
+        //     title: 'Understanding Angular Standalone Components',
+        //     excerpt: 'A quick dive into the new Angular standalone component API...',
+        //     content: 'Sample content...',
+        //     image: '/assets/images/blog-image.jpg',
+        //     featured: false,
+        //     createdAt: new Date().toISOString(),
+        //     updatedAt: new Date().toISOString()
+        //   }
+        // ];
       }
     });
   }
