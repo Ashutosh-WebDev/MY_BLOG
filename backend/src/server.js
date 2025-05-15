@@ -14,9 +14,9 @@ connectDB();
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist/frontend/browser")));
 
-// app.get("*", (_, res) => {
-//   res.sendFile(path.resolve(__dirname, "../../frontend/dist/frontend/browser/index.html"));
-// });
+app.get(/(.*)/, (_, res) => {
+   res.sendFile(path.resolve(__dirname, "../../frontend/dist/frontend/browser/index.html"));
+});
 
 
 // Middleware
