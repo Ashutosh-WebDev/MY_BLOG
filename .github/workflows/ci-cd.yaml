@@ -46,5 +46,5 @@ jobs:
           curl -X POST \
           -H "Authorization: Bearer $RENDER_API_KEY" \
           -H "Content-Type: application/json" \
-          -d '{"serviceId": "srv-YOUR_SERVICE_ID"}' \
-          https://api.render.com/v1/services/srv-https://api.render.com/deploy/srv-d0ho7m8dl3ps738rip70?key=eqFxtNXsiqM/deploys  
+          -d '{"serviceId": "srv-d0ho7m8dl3ps738rip70"}' \
+          https://api.render.com/v1/services/srv-d0ho7m8dl3ps738rip70/deploys  
