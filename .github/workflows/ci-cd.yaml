@@ -26,17 +26,17 @@ jobs:
 
       - name: Install dependencies (client)
         run: |
-          cd client
+          cd frontend
           npm install          
 
       - name: Install dependencies (server)
         run: |
-          cd server
+          cd backend
           npm install          
 
       - name: Build client
         run: |
-          cd client
+          cd frontend
           npm run build          
 
       - name: Deploy to Render
